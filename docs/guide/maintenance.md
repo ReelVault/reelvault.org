@@ -6,8 +6,12 @@ outline: [2, 3]
 
 # Backups & upgrades
 
+::: warning For server administrators
+You only need this page if you look after the machine. It is worth a few minutes: a backup is the difference between a hiccup and losing your library history.
+:::
+
 ::: tip In short
-Back up `ROOT_DIR` — or at least `reelvault.sqlite`, `secrets.env` and `plugins/`. Upgrades replace the app only; your accounts, libraries and watched state survive.
+Back up the server's data folder — or at least `reelvault.sqlite`, `secrets.env` and `plugins/`. Upgrades replace the app only; your accounts, libraries and watched state survive.
 :::
 
 ## What lives where
@@ -27,28 +31,28 @@ data/
 └── logs/              # server logs
 ```
 
-Your **media** lives wherever you mounted it — the server never moves or rewrites it unless a library uses sidecar metadata.
+Your **media** lives wherever you mounted it — the server never moves or rewrites it unless a library uses sidecar metadata (see [Adding your media](/guide/libraries#advanced-metadata-files-sidecars)).
 
 ## Backups
 
 For most people, backing up is: stop the server and copy `ROOT_DIR`, or at least `reelvault.sqlite`, `secrets.env` and `plugins/`. That preserves everything needed to stand the server back up, including plugin settings.
 
-You can also take a **database backup** from **Admin → Database**, which snapshots the SQLite database without stopping the server. Keep the file somewhere outside `ROOT_DIR`.
+You can also take a **database backup** from **Admin → Database**, which snapshots the database without stopping the server. Keep the file somewhere outside `ROOT_DIR`.
 
 <Screenshot
   caption="Admin → Database & backups"
-  hint="Take an online snapshot of the SQLite database without stopping the server."
+  hint="Take an online snapshot of the database without stopping the server."
   src="/screenshots/admin-database.png"
   alt="Database and backups page with backup count, space used, database engine and an empty snapshot list"
 />
 
 ::: warning Keep secrets.env
-`transcodes/`, `images/` and `logs/` are regenerable or disposable — skip them to keep backups small. `secrets.env` is not: without `BETTER_AUTH_SECRET`, existing sessions become invalid, and without the matching `SETUP_TOKEN`, a fresh server is unconfigured.
+`transcodes/`, `images/` and `logs/` can be regenerated — skip them to keep backups small. `secrets.env` cannot: without `BETTER_AUTH_SECRET`, existing sessions become invalid, and without the matching `SETUP_TOKEN`, a fresh server is unconfigured.
 :::
 
 ## Upgrades
 
-Upgrades only ever replace the application — everything in `ROOT_DIR` (accounts, libraries, watched state, settings) survives.
+Upgrades only ever replace the app — everything in `ROOT_DIR` (accounts, libraries, watched state, settings) survives.
 
 ### Docker
 
@@ -57,7 +61,7 @@ docker compose pull
 docker compose up -d
 ```
 
-If you pin secrets in `docker-compose.yml`, sessions survive the rebuild. If they are generated, they live in `/data/secrets.env` in the volume, so they survive too.
+If your secrets are generated, they live in `/data/secrets.env` in the volume, so they survive too.
 
 ### Installers and archives
 
@@ -76,7 +80,7 @@ bun install
 bun dev   # or: bun start
 ```
 
-Database migrations run automatically at boot, before the server accepts requests. To apply them separately:
+Database migrations run automatically at start, before the server accepts requests. To apply them separately:
 
 ```bash
 bun run db:migrate
@@ -84,11 +88,11 @@ bun run db:migrate
 
 Read the release notes before a major upgrade, and take a backup first — rollback means restoring `ROOT_DIR`.
 
-## Plugins
+## Updating plugins
 
-Update from **Admin → Plugins → Available**: an installed plugin shows an update action when a newer version exists in its catalog. Updates follow the same path as a fresh install — download, checksum, replace, hot reload. No restart.
+Update from **Admin → Plugins → Available**: an installed plugin shows an update action when a newer version exists in its catalog. Updates follow the same path as a fresh install — download, verify, replace, reload. No restart.
 
-To roll a plugin back, open it in **Available** and install an older release from its revision history — same verified download path. The server keeps only the installed copy, so older archives must still be listed by the catalog.
+To roll a plugin back, open it in **Available** and install an older release from its revision history.
 
 ## Moving to a new machine
 

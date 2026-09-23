@@ -25,7 +25,7 @@ export default defineConfig({
 		siteTitle: "ReelVault Docs",
 		logo: "/favicon.svg",
 		nav: [
-			{ text: "Self-hosting", link: "/guide/introduction", activeMatch: "/guide/" },
+			{ text: "Self-hosting", link: "/guide/", activeMatch: "/guide/" },
 			{
 				text: "Develop",
 				activeMatch: "/(sdk|plugins|reference)/",
@@ -38,47 +38,52 @@ export default defineConfig({
 			{ text: "GitHub", link: github },
 		],
 		sidebar: {
-			// Self-hosting ReelVault — for people running the server.
+			// Self-hosting ReelVault — for people running and using the server.
 			"/guide/": [
 				{
-					text: "Getting started",
+					text: "Start here",
 					items: [
 						{ text: "What is ReelVault?", link: "/guide/introduction" },
 						{ text: "Install & run", link: "/guide/getting-started" },
 						{ text: "First-run setup", link: "/guide/first-run" },
-						{ text: "Configuration", link: "/guide/configuration" },
 						{ text: "Web & desktop clients", link: "/guide/website" },
 					],
 				},
 				{
 					text: "Your library",
 					items: [
-						{ text: "Libraries & scanning", link: "/guide/libraries" },
-						{ text: "Metadata & providers", link: "/guide/metadata" },
-						{ text: "Playback & transcoding", link: "/guide/playback" },
+						{ text: "Adding your media", link: "/guide/libraries" },
+						{ text: "Naming your media", link: "/guide/naming-your-media" },
+						{ text: "Artwork & descriptions", link: "/guide/metadata" },
+						{ text: "Playback & quality", link: "/guide/playback" },
 					],
 				},
 				{
-					text: "People & access",
+					text: "People",
+					items: [{ text: "Users & profiles", link: "/guide/users-and-profiles" }],
+				},
+				{
+					text: "Extras",
+					items: [{ text: "Installing plugins", link: "/guide/plugins" }],
+				},
+				{
+					text: "Administration",
 					items: [
-						{ text: "Users & profiles", link: "/guide/users-and-profiles" },
+						{ text: "Server configuration", link: "/guide/configuration" },
 						{ text: "Remote access & TLS", link: "/guide/remote-access" },
-					],
-				},
-				{
-					text: "Operations",
-					items: [
-						{ text: "Installing plugins", link: "/guide/plugins" },
-						{ text: "Tasks & workers", link: "/guide/tasks-and-workers" },
-						{ text: "Diagnostics & logs", link: "/guide/diagnostics" },
 						{ text: "Backups & upgrades", link: "/guide/maintenance" },
+						{ text: "Background jobs", link: "/guide/tasks-and-workers" },
+						{ text: "Diagnostics & logs", link: "/guide/diagnostics" },
+						{ text: "Transcoding & hardware", link: "/guide/transcoding" },
+						{ text: "Run from source", link: "/guide/from-source" },
 					],
 				},
 				{
 					text: "Help",
 					items: [
-						{ text: "Troubleshooting", link: "/guide/troubleshooting" },
 						{ text: "FAQ", link: "/guide/faq" },
+						{ text: "Troubleshooting", link: "/guide/troubleshooting" },
+						{ text: "Glossary", link: "/guide/glossary" },
 					],
 				},
 			],
@@ -181,4 +186,36 @@ export default defineConfig({
 
 	// Keep dead-link checking strict; only localhost dev URLs are exempt.
 	ignoreDeadLinks: [/^https?:\/\/localhost/, /^https?:\/\/127\.0\.0\.1/],
+
+	// A sitemap for search engines (https://reelvault.org/sitemap.xml).
+	sitemap: {
+		hostname: "https://reelvault.org",
+	},
+
+	// Per-page Open Graph / Twitter tags, so shared links show a proper title,
+	// description and preview image instead of a bare URL.
+	transformHead({ pageData }) {
+		const title = String(pageData.frontmatter.title ?? pageData.title ?? "ReelVault");
+		const description = String(
+			pageData.frontmatter.description ??
+				pageData.description ??
+				"Documentation for ReelVault — a self-hosted media server.",
+		);
+		const path = pageData.relativePath.replace(/index\.md$/, "").replace(/\.md$/, "");
+		const url = `https://reelvault.org/${path}`;
+		const image = "https://reelvault.org/screenshots/og-image.jpg";
+		return [
+			["link", { rel: "canonical", href: url }],
+			["meta", { property: "og:type", content: "website" }],
+			["meta", { property: "og:site_name", content: "ReelVault Docs" }],
+			["meta", { property: "og:title", content: title }],
+			["meta", { property: "og:description", content: description }],
+			["meta", { property: "og:url", content: url }],
+			["meta", { property: "og:image", content: image }],
+			["meta", { name: "twitter:card", content: "summary_large_image" }],
+			["meta", { name: "twitter:title", content: title }],
+			["meta", { name: "twitter:description", content: description }],
+			["meta", { name: "twitter:image", content: image }],
+		];
+	},
 });

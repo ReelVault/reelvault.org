@@ -37,6 +37,7 @@ plugins/media-requests/
 Where to look, by topic:
 
 - **Writing a metadata provider?** `tmdb` for the full contract, `omdb` for external-id recognition and multi-source ratings.
+- **Need a TMDb token?** The `tmdb` plugin needs a free **Read Access Token** from [themoviedb.org](https://www.themoviedb.org/settings/api) — paste it into the plugin settings, then reload the plugin. On a fresh install it reports a failed load until the token is provided.
 - **Building a request/approval workflow?** `media-requests` is the end-to-end case study: routes + events + notifications + a full UI.
 - **Extending playback?** `cinemamode` is the `playbackPreRoll` example (trailers before a movie); `community-markers` shows `host.markers` plus live voting over realtime.
 - **Reacting to server events?** `webhooks` subscribes generically with `host.events.on` and pushes outbound with `host.http.fetch`.

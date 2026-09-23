@@ -1,18 +1,22 @@
 ---
 title: Remote access & TLS
-description: Expose your server beyond the LAN safely — reverse proxy, HTTPS, and the settings that matter.
+description: Expose your server beyond the local network safely — reverse proxy, HTTPS, and the settings that matter.
 outline: [2, 3]
 ---
 
 # Remote access & TLS
 
-::: tip In short
-On the LAN, set `APP_HOST=0.0.0.0`. For the internet, put the server behind a reverse proxy with TLS — and only after first-run setup is complete (or with a setup token enabled).
+::: warning For server administrators
+This page involves network settings. If you only watch at home, you do not need it. To watch on the road the easy way, start with the VPN option in [Watching away from home](/guide/website#watching-away-from-home).
 :::
 
-By default a ReelVault server only listens on localhost. You decide how far to open it up: to the LAN, or to the internet. How much you open depends on who needs access.
+::: tip In short
+On your local network, one setting is enough: `APP_HOST=0.0.0.0`. To reach the server from the internet, put it behind a **reverse proxy** with HTTPS — and only after first-run setup is complete (or with a setup token enabled).
+:::
 
-## On the LAN
+By default a ReelVault server only listens on the machine it runs on. You decide how far to open it up.
+
+## On the local network
 
 The simplest setup: let the server listen on all interfaces.
 
@@ -20,17 +24,17 @@ The simplest setup: let the server listen on all interfaces.
 APP_HOST=0.0.0.0
 ```
 
-Any device on the same network can then reach `http://<your-host>:3030`. Localhost, private LAN ranges (`192.168.x.x`, `10.x.x.x`, `172.16–31.x.x`) and `.lan` / `.local` domains are allowed as origins out of the box, so the client works without extra CORS configuration. The installers do this for you — `install.sh --remote` on Linux, `install.ps1 -Remote` on Windows (the Docker image always listens on all interfaces).
+Any device on the same network can then reach `http://<your-host>:3030`. Localhost, private network ranges (`192.168.x.x`, `10.x.x.x`, `172.16–31.x.x`) and `.lan` / `.local` domains are allowed automatically, so the client works without extra configuration. The installers do this for you — `install.sh --remote` on Linux, `install.ps1 -Remote` on Windows (the Docker image always listens on all interfaces).
 
-If you have a hostname for the machine (for example `reelvault.lan`), set `APP_PUBLIC_URL` to it so generated links and auth callbacks point at the right place.
+If the machine has a hostname (for example `reelvault.lan`), set `APP_PUBLIC_URL` to it so generated links and sign-in callbacks point at the right place.
 
 ## Exposing it to the internet
 
 ::: warning Never expose an unconfigured server
-Put it behind a reverse proxy and terminate TLS there — do not expose port 3030 directly. Do this **after** first-run setup is complete, or enable a setup token first (`SETUP_TOKEN_ENABLED=true`). On an unconfigured server, anyone who reaches the setup wizard could create the administrator account.
+Put it behind a reverse proxy and terminate HTTPS there — do not expose port 3030 directly. Do this **after** first-run setup is complete, or enable a setup token first (`SETUP_TOKEN_ENABLED=true`). On an unconfigured server, anyone who reaches the setup wizard could create the administrator account.
 :::
 
-A typical nginx site:
+A **reverse proxy** is a small web server that sits in front of ReelVault, adds HTTPS and a domain name, and forwards requests to the app. A typical nginx site:
 
 ```nginx
 server {
@@ -55,16 +59,23 @@ Then set:
 
 | Variable | Value | Why |
 |---|---|---|
-| `APP_PUBLIC_URL` | `https://media.example.com` | Correct links and auth callbacks. |
+| `APP_PUBLIC_URL` | `https://media.example.com` | Correct links and sign-in callbacks. |
 | `APP_SECURE` | `true` | Cookies are marked `Secure`, so they only travel over HTTPS. |
 | `APP_TRUSTED_PROXY_COUNT` | `1` | Trust exactly one proxy for `X-Forwarded-For` — the client IP is used for rate limiting and the audit log. Increase only if you have a CDN in front. |
 | `APP_ALLOWED_ORIGINS` | your domain, if needed | Usually unnecessary; add it if the browser origin differs from the server URL. |
 
-::: tip Don't drop the WebSocket upgrade
+::: tip Do not drop the WebSocket upgrade
 Without it, playback controls and live updates fall back to polling or stop working.
 :::
 
-If your proxy rewrites or drops the `Origin` header, set `APP_COOKIE_DOMAIN` as well — otherwise leave it alone, since the server derives the cookie domain automatically.
+If your proxy rewrites or drops the `Origin` header, set `APP_COOKIE_DOMAIN` as well — otherwise leave it alone, since the server works it out automatically.
+
+<Screenshot
+  caption="Admin → Server settings → Network"
+  hint="Allowed origins, automatic trust for local networks, and the Remote access card with copy-ready proxy configs."
+  src="/screenshots/admin-network.png"
+  alt="The Network settings tab with allowed origins, automatic trust for local networks and the remote access readiness card"
+/>
 
 ## Check your setup
 
@@ -79,7 +90,7 @@ If your proxy rewrites or drops the `Origin` header, set `APP_COOKIE_DOMAIN` as 
 
 ## A safer default
 
-If you only need access for a few people, a VPN is less work and less risk than publishing the server: WireGuard, Tailscale and similar tools give every device a private address that reaches the LAN setup above. Nothing is exposed to the public internet, and you keep the plain `http://` setup on the tunnel.
+If you only need access for a few people, a VPN is less work and less risk than publishing the server: WireGuard, Tailscale and similar tools give every device a private address that reaches the local-network setup above. Nothing is exposed to the public internet, and you keep plain `http://` on the tunnel.
 
 ## Next steps
 
