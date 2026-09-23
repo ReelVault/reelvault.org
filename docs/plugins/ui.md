@@ -123,7 +123,7 @@ Build them type-safely and emit JSON at build time:
 
 ```ts
 // ui/schema.ts → dist/ui/schema.json
-import { button, defineSchema, grid, row, selectField, stack, text, textField, textareaField } from "reelvault-sdk/ui/schema";
+import { button, defineSchema, grid, row, selectField, stack, text, textField, textareaField } from "@reelvault/sdk/ui/schema";
 
 export default defineSchema({
   data: {
@@ -155,10 +155,10 @@ The vocabulary: layout (`stack`, `row`, `grid`, `card`, `section`, `tabs`, `sepa
 
 ## Custom elements
 
-When you need real code, define elements with the [`reelvault-sdk/ui`](/sdk/ui) kit and list their tags in the manifest:
+When you need real code, define elements with the [`@reelvault/sdk/ui`](/sdk/ui) kit and list their tags in the manifest:
 
 ```tsx
-import { definePluginElement, mountShadow } from "reelvault-sdk/ui";
+import { definePluginElement, mountShadow } from "@reelvault/sdk/ui";
 import { createRoot } from "react-dom/client";
 import css from "./styles.css?inline";
 
@@ -184,7 +184,7 @@ The host resolves against the active app locale, then the plugin's `defaultLocal
 
 ## Building the bundle
 
-Put frontend sources in `ui/` with a `package.json` whose `build` script emits a single ESM module at `ui/dist/index.js` (import CSS with `?inline` so Shadow DOM picks it up). The starter lives in the standalone [plugin-template](https://github.com/ReelVault/ReelVault.PluginTemplate) repo; the catalog builder in `ReelVault.Plugins` runs the same UI build for cataloged plugins.
+Put frontend sources in `ui/` with a `package.json` whose `build` script emits a single ESM module at `ui/dist/index.js` (import CSS with `?inline` so Shadow DOM picks it up). The starter lives in the standalone [plugin-template](https://github.com/ReelVault/plugin-template) repo; the catalog builder in `plugins` runs the same UI build for cataloged plugins.
 
 Two development-loop gotchas: `schemaRef` files are read from `ui/dist/` — run the build before reloading, or inline the schema while iterating; and a custom-element `entry` is served from `ui/dist/index.js`, so the built bundle must exist next to the sources for the page to load.
 

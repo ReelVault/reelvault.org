@@ -24,7 +24,7 @@ It is the same idea as Jellyfin or Plex, built from scratch on [Bun](https://bun
 
 ```
                     ┌──────────────────────────────┐
-                    │        ReelVault.Server      │
+                    │        reelvault             │
                     │  Bun + Elysia, SQLite, ffmpeg│
                     │  HTTP API · HLS · plugins    │
                     └──────────────┬───────────────┘
@@ -60,9 +60,10 @@ The **website** is a generic React app. It ships as a browser page and as a [Tau
 
 | Repository | What is inside |
 |---|---|
-| [ReelVault.Server](https://github.com/ReelVault/ReelVault.Server) | The backend; its `sdk/` sources are published to npm as the `reelvault-sdk` package |
-| [ReelVault.Website](https://github.com/ReelVault/ReelVault.Website) | The web and desktop client (React, Vite, TanStack, Tauri) |
-| [ReelVault.Plugins](https://github.com/ReelVault/ReelVault.Plugins) | First-party plugins and the catalog manifest |
+| [reelvault](https://github.com/ReelVault/reelvault) | The backend |
+| [sdk](https://github.com/ReelVault/sdk) | The typed TypeScript SDK, published to npm as the `@reelvault/sdk` package |
+| [website](https://github.com/ReelVault/website) | The web and desktop client (React, Vite, TanStack, Tauri) |
+| [plugins](https://github.com/ReelVault/plugins) | First-party plugins and the catalog manifest |
 | [reelvault.org](https://github.com/ReelVault/reelvault.org) | This documentation site |
 
 ## Next steps

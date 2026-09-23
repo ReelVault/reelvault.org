@@ -6,16 +6,16 @@ outline: [2, 3]
 
 # API client — getting started
 
-`reelvault-sdk/client` exports a typed, framework-agnostic HTTP client built on `fetch`. One instance wraps the whole API: 25 resource clients share a single transport with global GET deduplication, optional caching, automatic retries and token refresh.
+`@reelvault/sdk/client` exports a typed, framework-agnostic HTTP client built on `fetch`. One instance wraps the whole API: 25 resource clients share a single transport with global GET deduplication, optional caching, automatic retries and token refresh.
 
 ```bash
-bun add reelvault-sdk   # or bun link, see the SDK overview
+bun add @reelvault/sdk   # or bun link, see the SDK overview
 ```
 
 ## Create a client
 
 ```ts
-import { ReelVaultClient } from "reelvault-sdk/client";
+import { ReelVaultClient } from "@reelvault/sdk/client";
 
 const api = new ReelVaultClient({
   baseUrl: "http://localhost:3030",  // required — a trailing slash is trimmed

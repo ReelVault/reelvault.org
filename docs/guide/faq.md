@@ -40,7 +40,7 @@ Put the server behind a reverse proxy with HTTPS, or connect over a VPN. It does
 
 ## Where do plugins come from?
 
-From catalog repositories — static URLs serving a catalog manifest. A fresh server points at the official [ReelVault.Plugins](https://github.com/ReelVault/ReelVault.Plugins) catalog; you can add your own. Install and update from [Admin → Plugins](/guide/plugins).
+From catalog repositories — static URLs serving a catalog manifest. A fresh server points at the official [plugins](https://github.com/ReelVault/plugins) catalog; you can add your own. Install and update from [Admin → Plugins](/guide/plugins).
 
 ## Can I write my own plugin?
 

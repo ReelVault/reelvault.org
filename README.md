@@ -3,7 +3,7 @@
 Documentation site for [ReelVault](https://github.com/ReelVault) — a self-hosted media server. Two audiences, deliberately kept apart:
 
 - **Self-hosting ReelVault** (`docs/guide/`) — install, configure, run and use the server. For users and admins.
-- **Develop** (`docs/sdk/`, `docs/plugins/`, `docs/reference/`) — the typed TypeScript SDK (`reelvault-sdk`) and the runtime plugin system. For developers.
+- **Develop** (`docs/sdk/`, `docs/plugins/`, `docs/reference/`) — the typed TypeScript SDK (`@reelvault/sdk`) and the runtime plugin system. For developers.
 
 **Live:** https://reelvault.org
 
@@ -58,10 +58,10 @@ One-time setup: **Settings → Pages → Source: GitHub Actions**, and **Setting
 docs/
 ├── .vitepress/config.mts       # nav, sidebars, search, base path
 ├── .vitepress/theme/           # custom theme (brand colours, copy-page menu, Screenshot slot)
-├── public/                     # favicon / web manifest (mirrored from ReelVault.Website)
+├── public/                     # favicon / web manifest (mirrored from website)
 ├── index.md                    # landing page
 ├── guide/                      # self-hosting: install, config, library, admin (users)
-├── sdk/                        # reelvault-sdk SDK (client, common, ui, testing)
+├── sdk/                        # @reelvault/sdk docs (client, common, ui, testing)
 ├── plugins/                    # plugin authoring (manifest, host API, UI, publishing)
 └── reference/                  # API reference: signatures, contracts, glossary
 scripts/generate-llms.ts        # post-build: copies .md into dist/, emits llms.txt

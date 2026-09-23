@@ -35,7 +35,7 @@ plugins/org.example.hello/
 
 ```ts
 // index.ts
-import { definePlugin, ok, route, t } from "reelvault-sdk/plugin";
+import { definePlugin, ok, route, t } from "@reelvault/sdk/plugin";
 
 export default definePlugin({
 	async setup(host) {
@@ -96,17 +96,17 @@ Add a `ui.json` and the **generic host website** renders your surfaces — pages
 }
 ```
 
-Surfaces render either as **declarative schemas** (data — recommended, matches the app's look, cannot execute code) or **custom elements** (your own ESM bundle, for UI the schema cannot express). Both are covered in [Frontend (ui.json)](/plugins/ui); the client-side helpers live in [`reelvault-sdk/ui`](/sdk/ui).
+Surfaces render either as **declarative schemas** (data — recommended, matches the app's look, cannot execute code) or **custom elements** (your own ESM bundle, for UI the schema cannot express). Both are covered in [Frontend (ui.json)](/plugins/ui); the client-side helpers live in [`@reelvault/sdk/ui`](/sdk/ui).
 
 ## Development loop
 
-1. Fork the standalone [`plugin-template`](https://github.com/ReelVault/ReelVault.PluginTemplate) repo (backend + UI) — one repo per plugin, catalog optional.
+1. Fork the standalone [`plugin-template`](https://github.com/ReelVault/plugin-template) repo (backend + UI) — one repo per plugin, catalog optional.
 2. Work directly in your server's `ROOT_DIR/plugins/<your-id>/` — plugins load at boot.
 3. Apply changes with `POST /v1/admin/plugins/reload` (admin auth) — or restart the dev server.
 4. Unit-test the backend against the in-memory [testing host](/sdk/testing).
 
 ```bash
-# inside the ReelVault.Plugins repo
+# inside the plugins repo
 bun run build-catalog   # builds every plugin + UI, packs zips, writes dist/reelvault-catalog.json
 ```
 

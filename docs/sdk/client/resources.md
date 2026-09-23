@@ -6,7 +6,7 @@ outline: [2, 3]
 
 # Resources & realtime
 
-A `ReelVaultClient` instance exposes 25 resource clients. Method parameters and return types are all inferred from the shared contracts (`reelvault-sdk/common`), so treat this page as a map — your editor has the details.
+A `ReelVaultClient` instance exposes 25 resource clients. Method parameters and return types are all inferred from the shared contracts (`@reelvault/sdk/common`), so treat this page as a map — your editor has the details.
 
 Collection endpoints share conventions: `getAll` supports pagination (`limit`, `offset` / `page`), sorting and a `fields` projection (request only the relations you need; empty `fields` loads full relations). Methods typed `getAll<F>` are generic over the projected field set, so the returned row type narrows to what you asked for.
 
@@ -151,7 +151,7 @@ interface RealtimeEventMessage<TData = unknown> {
 }
 ```
 
-`RealtimeEventMap` (from `reelvault-sdk/common`) types the known payloads:
+`RealtimeEventMap` (from `@reelvault/sdk/common`) types the known payloads:
 
 | Event | Payload highlights |
 |---|---|

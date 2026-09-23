@@ -1,10 +1,10 @@
 ---
 title: Plugin UI kit
-description: reelvault-sdk/ui — custom elements, shadow mounting and declarative schema builders.
+description: "@reelvault/sdk/ui — custom elements, shadow mounting and declarative schema builders."
 outline: [2, 3]
 ---
 
-# Plugin UI kit — `reelvault-sdk/ui`
+# Plugin UI kit — `@reelvault/sdk/ui`
 
 This entry point is the **client-side** half of the plugin SDK. Plugin UI ships as custom elements (Web Components) defined by one ESM module — the `entry` in `ui.json` — which the host website imports and mounts.
 
@@ -18,7 +18,7 @@ Custom elements are used instead of iframes because the element runs directly in
 ## Define an element
 
 ```tsx
-import { definePluginElement, mountShadow } from "reelvault-sdk/ui";
+import { definePluginElement, mountShadow } from "@reelvault/sdk/ui";
 import { createRoot } from "react-dom/client";
 import css from "./styles.css?inline";
 
@@ -82,7 +82,7 @@ interface PluginUiContext {
 The same entry point exports the **declarative schema** helpers. They are identity functions that give you autocomplete and compile-time errors; the plugin build serializes the result to JSON, and the host renders it with its own components:
 
 ```ts
-import { defineSchema, stack, text, textField, textareaField, grid, selectField, row, button } from "reelvault-sdk/ui/schema";
+import { defineSchema, stack, text, textField, textareaField, grid, selectField, row, button } from "@reelvault/sdk/ui/schema";
 
 export default defineSchema({
   body: [
@@ -114,8 +114,8 @@ The vocabulary:
 
 Expressions interpolate as <span v-pre>`{{form.x}}`, `{{data.<source>.<path>}}` and `{{item.x}}`</span>. The full node reference lives in [UI schema](/reference/ui/schema).
 
-`reelvault-sdk/ui/schema` exports only the builders. Import from the subpath when you do not need the element kit — schema-only plugins ship no JavaScript at all.
+`@reelvault/sdk/ui/schema` exports only the builders. Import from the subpath when you do not need the element kit — schema-only plugins ship no JavaScript at all.
 
 ## Bundling
 
-Bundle `ui/` into a **single ESM module** that registers all your elements (`ui/dist/index.js`). Import your CSS with `?inline` so it lands in the bundle for `mountShadow`. The starter lives in the standalone [plugin-template](https://github.com/ReelVault/ReelVault.PluginTemplate) repo; the full manifest format — pages, dialogs, tabs, slots, and how they reference schemas or tags — is in [Frontend (ui.json)](/plugins/ui).
+Bundle `ui/` into a **single ESM module** that registers all your elements (`ui/dist/index.js`). Import your CSS with `?inline` so it lands in the bundle for `mountShadow`. The starter lives in the standalone [plugin-template](https://github.com/ReelVault/plugin-template) repo; the full manifest format — pages, dialogs, tabs, slots, and how they reference schemas or tags — is in [Frontend (ui.json)](/plugins/ui).

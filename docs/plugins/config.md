@@ -14,7 +14,7 @@ Configuration travels with the plugin entry — no separate file or manifest fie
 
 ```ts
 // config.ts
-import { defineConfig, field, type InferConfig } from "reelvault-sdk/plugin";
+import { defineConfig, field, type InferConfig } from "@reelvault/sdk/plugin";
 
 export const config = defineConfig({
   apiKey: field.secret({
@@ -41,7 +41,7 @@ export type HelloConfig = InferConfig<typeof config>;
 
 ```ts
 // index.ts
-import { definePlugin } from "reelvault-sdk/plugin";
+import { definePlugin } from "@reelvault/sdk/plugin";
 import { config } from "./config";
 
 export default definePlugin(config, {

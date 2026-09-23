@@ -79,7 +79,7 @@ A broken plugin does not take the server down — it stays disabled. Fix it and 
 
 Grab the **request id** from the error (or the failing log line) and the relevant section of **Admin → Server logs**, then open an issue on the matching repository:
 
-- Server, API, transcoding → [ReelVault.Server](https://github.com/ReelVault/ReelVault.Server)
-- Web or desktop client → [ReelVault.Website](https://github.com/ReelVault/ReelVault.Website)
-- A bundled plugin → [ReelVault.Plugins](https://github.com/ReelVault/ReelVault.Plugins)
+- Server, API, transcoding → [reelvault](https://github.com/ReelVault/reelvault)
+- Web or desktop client → [website](https://github.com/ReelVault/website)
+- A bundled plugin → [plugins](https://github.com/ReelVault/plugins)
 - This documentation → [reelvault.org](https://github.com/ReelVault/reelvault.org)

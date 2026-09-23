@@ -8,10 +8,10 @@ outline: [2, 3]
 
 With the `httpRoute` capability your plugin exposes endpoints under **`/v1/plugins/:pluginId/*`**. The host dispatches to them with authentication already resolved — every handler receives the authenticated user.
 
-Schemas are TypeBox (`t` is re-exported from `reelvault-sdk/plugin`). When you attach a schema, the host validates the request and hands your handler the parsed, statically-typed value:
+Schemas are TypeBox (`t` is re-exported from `@reelvault/sdk/plugin`). When you attach a schema, the host validates the request and hands your handler the parsed, statically-typed value:
 
 ```ts
-import { definePlugin, ok, route, t } from "reelvault-sdk/plugin";
+import { definePlugin, ok, route, t } from "@reelvault/sdk/plugin";
 
 await host.routes.register(
   route({

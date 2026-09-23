@@ -1,16 +1,16 @@
 ---
 title: Testing host
-description: reelvault-sdk/testing — an in-memory PluginHost for unit-testing plugins.
+description: "@reelvault/sdk/testing — an in-memory PluginHost for unit-testing plugins."
 outline: [2, 3]
 ---
 
-# Testing host — `reelvault-sdk/testing`
+# Testing host — `@reelvault/sdk/testing`
 
 `PluginTestHost` is an in-memory implementation of the whole `PluginHost` interface. Run your plugin's `setup` against it in unit tests and assert on what the plugin registered, enqueued and wrote — no server, no database, no filesystem.
 
 ```ts
 import { describe, expect, test } from "bun:test";
-import { createPluginTestHost } from "reelvault-sdk/testing";
+import { createPluginTestHost } from "@reelvault/sdk/testing";
 import plugin from "../src/index";
 
 describe("my plugin", () => {
@@ -75,4 +75,4 @@ host.providers.getDetails = async (_providerId, type, externalId) =>
   type === "movie" ? makeFakeDetails(externalId) : null;
 ```
 
-`PluginTestHost` lives in the server repo at [`sdk/testing/`](https://github.com/ReelVault/ReelVault.Server/tree/main/sdk/testing) and is exercised by the SDK's own `types.test.ts`, which is a good reference for realistic setups.
+`PluginTestHost` lives in the SDK repo at [`testing/`](https://github.com/ReelVault/sdk/tree/main/testing) and is exercised by the SDK's own `types.test.ts`, which is a good reference for realistic setups.

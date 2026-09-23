@@ -70,7 +70,7 @@ Declare the narrowest set you can — capabilities are shown to the admin at ins
 Configuration is declared with `defineConfig` next to the entry (see [Configuration](/plugins/config)):
 
 ```ts
-import { defineConfig, field, type InferConfig } from "reelvault-sdk/plugin";
+import { defineConfig, field, type InferConfig } from "@reelvault/sdk/plugin";
 
 const config = defineConfig({
   apiKey: field.secret({ label: "API key", required: true, default: "" }),
@@ -157,4 +157,4 @@ Top-level fields describe the latest release; `versions[]` keeps older installab
 
 | Constant | Import | Value |
 |---|---|---|
-| `PLUGIN_UI_PROTOCOL_VERSION` | `reelvault-sdk/plugin` / `reelvault-sdk/ui` | `2` |
+| `PLUGIN_UI_PROTOCOL_VERSION` | `@reelvault/sdk/plugin` / `@reelvault/sdk/ui` | `2` |

@@ -38,7 +38,7 @@ Only **idempotent** methods are retried: `GET`, `HEAD`, `OPTIONS`, `PUT`, `DELET
 You can reuse the same predicates outside the transport:
 
 ```ts
-import { isRetryableError, isRetryableStatus } from "reelvault-sdk/client";
+import { isRetryableError, isRetryableStatus } from "@reelvault/sdk/client";
 ```
 
 ## Timeouts

@@ -21,7 +21,7 @@ The server serves the web client itself — open the address the server is on (b
 
 Because the app ships a web manifest, you can **install it as an app** from the browser menu — it opens in its own window, with its own icon and no browser chrome.
 
-When you open the client from another device on the same network, it automatically talks to the same origin it was served from, so `http://reelvault.lan:3030` or `http://192.168.1.20:3030` just works without extra configuration. If you host the client behind a different origin than the API (advanced setups), the client falls back to the `api.*` subdomain convention — see the [ReelVault.Website](https://github.com/ReelVault/ReelVault.Website) README.
+When you open the client from another device on the same network, it automatically talks to the same origin it was served from, so `http://reelvault.lan:3030` or `http://192.168.1.20:3030` just works without extra configuration. If you host the client behind a different origin than the API (advanced setups), the client falls back to the `api.*` subdomain convention — see the [website](https://github.com/ReelVault/website) README.
 
 ## Desktop app
 
@@ -71,4 +71,4 @@ The user menu (top right) holds:
 
 ## Building the client yourself
 
-Developers who want to run or modify the client should start from the [ReelVault.Website](https://github.com/ReelVault/ReelVault.Website) repository — its README covers the stack, the dev server and the desktop build. The client talks to the server exclusively through the typed SDK; see the [SDK overview](/sdk/).
+Developers who want to run or modify the client should start from the [website](https://github.com/ReelVault/website) repository — its README covers the stack, the dev server and the desktop build. The client talks to the server exclusively through the typed SDK; see the [SDK overview](/sdk/).

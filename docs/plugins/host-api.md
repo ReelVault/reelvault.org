@@ -107,7 +107,7 @@ deleteBlob(key): Promise<void>;                    // blobs: 20 MiB each, 100 Mi
 Namespace is per-plugin — you see only your own keys. `get` returns `unknown` by design; use the validated helpers from the SDK when you want a typed value:
 
 ```ts
-import { readStored, updateStored, t } from "reelvault-sdk/plugin";
+import { readStored, updateStored, t } from "@reelvault/sdk/plugin";
 
 const Count = t.Object({ value: t.Number() });
 

@@ -73,7 +73,7 @@ host.events.on("media.file.ready", async ({ libraryId, mediaFileId, metadataId }
 });
 ```
 
-The full map (`PluginEventDataMap`, from `reelvault-sdk/plugin`):
+The full map (`PluginEventDataMap`, from `@reelvault/sdk/plugin`):
 
 | Group | Events |
 |---|---|
@@ -96,7 +96,7 @@ Two idioms worth copying:
 Hooks intercept core import pipelines **before** they complete. A hook may transform the candidate (return the changed one) or veto it; returning `undefined` keeps the candidate unchanged. To abort the operation entirely, veto it:
 
 ```ts
-import { rejectPluginHook } from "reelvault-sdk/plugin";
+import { rejectPluginHook } from "@reelvault/sdk/plugin";
 
 host.hooks.beforeMetadataSave(({ candidate }) => {
   if (isJunk(candidate)) return undefined;        // skip this save

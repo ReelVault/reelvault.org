@@ -64,9 +64,9 @@ Terms that show up across the guides, explained without assuming you know them a
 
 **Declarative schema** — data describing UI; the host renders it with its own components and it cannot run code.
 
-**SDK** — the `reelvault-sdk` package: a typed HTTP client, shared contracts, the plugin SDK and a test host.
+**SDK** — the `@reelvault/sdk` package: a typed HTTP client, shared contracts, the plugin SDK and a test host.
 
-**Contract** — a TypeBox schema in `reelvault-sdk/common` and the TypeScript type inferred from it. Server and clients share the same definition.
+**Contract** — a TypeBox schema in `@reelvault/sdk/common` and the TypeScript type inferred from it. Server and clients share the same definition.
 
 **Catalog** — a static URL serving a `reelvault-catalog.json`; servers browse catalogs to install plugins.
 

@@ -102,7 +102,7 @@ import {
   type PluginEventName,
   type PluginEventMap,
   type PluginEventHandler,
-} from "reelvault-sdk/plugin";
+} from "@reelvault/sdk/plugin";
 ```
 
 `createPluginEventPayload` builds the same frozen envelope production uses; the [testing host](/sdk/testing) calls it when you `host.emit(...)`.
@@ -112,7 +112,7 @@ import {
 Hooks intercept core pipelines **before** they complete. A handler may return a transformed candidate, return `undefined` to skip the operation, or throw a rejection.
 
 ```ts
-import { rejectPluginHook } from "reelvault-sdk/plugin";
+import { rejectPluginHook } from "@reelvault/sdk/plugin";
 
 host.hooks.beforeMetadataSave(({ candidate }) => {
   if (isJunk(candidate)) return undefined;                    // skip this save

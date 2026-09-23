@@ -7,7 +7,7 @@ outline: [2, 3]
 # `ReelVaultClient`
 
 ```ts
-import { ReelVaultClient } from "reelvault-sdk/client";
+import { ReelVaultClient } from "@reelvault/sdk/client";
 
 const api = new ReelVaultClient({
   baseUrl: "http://localhost:3030",

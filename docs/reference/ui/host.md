@@ -4,7 +4,7 @@ description: PluginUiHost, the element kit, and the context types passed to plug
 outline: [2, 3]
 ---
 
-# Plugin UI host — `reelvault-sdk/ui`
+# Plugin UI host — `@reelvault/sdk/ui`
 
 The client-side half of the plugin SDK. Only surfaces that declare a custom-element `tag` need it; declarative-schema surfaces ship no JavaScript.
 
@@ -15,7 +15,7 @@ import {
   ReelVaultElement,
   PLUGIN_UI_PROTOCOL_VERSION,
   type PluginUiHost,
-} from "reelvault-sdk/ui";
+} from "@reelvault/sdk/ui";
 ```
 
 `PLUGIN_UI_PROTOCOL_VERSION` is `2`.

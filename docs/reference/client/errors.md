@@ -16,7 +16,7 @@ import {
   TimeoutError,
   isRetryableError,
   isRetryableStatus,
-} from "reelvault-sdk/client";
+} from "@reelvault/sdk/client";
 ```
 
 ## `ReelVaultError`

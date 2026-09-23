@@ -9,7 +9,7 @@ outline: [2, 3]
 `setup(host)` receives the `PluginHost` — the only door between a plugin and the server. Every namespace is gated by a [capability](/plugins/manifest#capabilities) declared in `plugin.json` and asserted at runtime.
 
 ```ts
-import { definePlugin, type PluginHost } from "reelvault-sdk/plugin";
+import { definePlugin, type PluginHost } from "@reelvault/sdk/plugin";
 
 export default definePlugin({
   async setup(host: PluginHost) { /* register everything here */ },

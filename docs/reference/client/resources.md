@@ -6,7 +6,7 @@ outline: [2, 3]
 
 # Client resources
 
-A `ReelVaultClient` exposes 25 resource clients. Method parameters and return types are inferred from the shared contracts (`reelvault-sdk/common`), so this page is a map — your editor has the full detail.
+A `ReelVaultClient` exposes 25 resource clients. Method parameters and return types are inferred from the shared contracts (`@reelvault/sdk/common`), so this page is a map — your editor has the full detail.
 
 ## Collection conventions
 

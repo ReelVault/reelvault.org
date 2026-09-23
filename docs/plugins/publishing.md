@@ -28,7 +28,7 @@ A catalog is any static URL serving `reelvault-catalog.json` (`apiVersion: 1`):
 			"version": "1.2.0",
 			"description": "Metadata provider backed by The Movie Database API.",
 			"category": "metadata",
-			"homepage": "https://github.com/ReelVault/ReelVault.Plugins/tree/main/plugins/tmdb",
+			"homepage": "https://github.com/ReelVault/plugins/tree/main/plugins/tmdb",
 			"iconUrl": "https://…/tmdb.png",
 			"changelog": "Added poster ranking.",
 			"date": "2026-09-01",
@@ -59,7 +59,7 @@ Hosting: **any static HTTPS URL works** — a GitHub release asset, raw.githubus
 
 ## Building with `build-catalog`
 
-The [ReelVault.Plugins](https://github.com/ReelVault/ReelVault.Plugins) repo ships the official build script:
+The [plugins](https://github.com/ReelVault/plugins) repo ships the official build script:
 
 ```bash
 bun run build-catalog
@@ -69,7 +69,7 @@ bun run build-catalog
 
 For every plugin under `plugins/` it:
 
-1. bundles `index.ts` with Bun — **keeping `reelvault-sdk/*` external** (the host provides the SDK itself);
+1. bundles `index.ts` with Bun — **keeping `@reelvault/sdk/*` external** (the host provides the SDK itself);
 2. patches `plugin.json` to point at the bundled entry;
 3. builds the `ui/` bundle when present;
 4. zips the result, computes the sha256, and emits the catalog entry.
@@ -89,7 +89,7 @@ Attach an access token to the repository entry in **Admin → Plugins → Reposi
 
 ## Keep it self-contained
 
-- **Never bundle `reelvault-sdk/*`** — the host writes a `node_modules/reelvault-sdk` shim into the plugins directory at boot and resolves those imports to its own SDK build. Mark them external in your bundler config.
+- **Never bundle `@reelvault/sdk/*`** — the host writes a `node_modules/@reelvault/sdk` shim into the plugins directory at boot and resolves those imports to its own SDK build. Mark them external in your bundler config.
 - Bundle every *other* dependency into your entry (or ship them in `node_modules/` inside the zip).
 - Secrets (provider API keys) belong in [configuration](/plugins/config) — never in UI statics; the host blocks `config.json` under `/plugins/ui/`.
 

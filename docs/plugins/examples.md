@@ -6,7 +6,7 @@ outline: [2, 3]
 
 # Bundled plugins
 
-The [ReelVault.Plugins](https://github.com/ReelVault/ReelVault.Plugins) repository holds the first-party plugins. They double as the SDK's reference implementations: each one is a small, complete example of a different plugin shape. The catalog manifest they generate is what servers browse in **Admin → Plugins → Available**.
+The [plugins](https://github.com/ReelVault/plugins) repository holds the first-party plugins. They double as the SDK's reference implementations: each one is a small, complete example of a different plugin shape. The catalog manifest they generate is what servers browse in **Admin → Plugins → Available**.
 
 | Plugin | Category | What it does | SDK features it exercises |
 |---|---|---|---|
@@ -44,4 +44,4 @@ Where to look, by topic:
 
 ## Adding yours
 
-Start from the standalone [`plugin-template`](https://github.com/ReelVault/ReelVault.PluginTemplate) repo (minimal backend + schema UI), then see [Publishing & catalogs](/plugins/publishing) to ship it. Your plugin can live in its own repository — the catalog format is open, and a server can browse any manifest URL. For cataloged plugins, the sources live in [ReelVault.Plugins](https://github.com/ReelVault/ReelVault.Plugins).
+Start from the standalone [`plugin-template`](https://github.com/ReelVault/plugin-template) repo (minimal backend + schema UI), then see [Publishing & catalogs](/plugins/publishing) to ship it. Your plugin can live in its own repository — the catalog format is open, and a server can browse any manifest URL. For cataloged plugins, the sources live in [plugins](https://github.com/ReelVault/plugins).

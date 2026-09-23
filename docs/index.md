@@ -39,7 +39,7 @@ features:
     linkText: Write your first plugin
   - icon: 📦
     title: One typed SDK
-    details: The reelvault-sdk package exposes a typed HTTP client, shared TypeBox contracts, the plugin SDK and an in-memory test host.
+    details: The @reelvault/sdk package exposes a typed HTTP client, shared TypeBox contracts, the plugin SDK and an in-memory test host.
     link: /sdk/
     linkText: SDK overview
 ---

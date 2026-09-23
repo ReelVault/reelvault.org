@@ -8,9 +8,9 @@ outline: [2, 3]
 
 This section is the lookup table. The **Develop** guides explain how things fit together; these pages give you the exact shape of each symbol — signature, parameters, return type, required capability, and limits — so you do not have to open the source.
 
-Everything here is derived from the TypeScript sources in [`sdk/`](https://github.com/ReelVault/ReelVault.Server/tree/main/sdk) of the server repository:
+Everything here is derived from the TypeScript sources of the [`ReelVault/sdk`](https://github.com/ReelVault/sdk) repository:
 
-- **`reference/client/*`** — [`reelvault-sdk/client`](/reference/client/configuration): configuration, errors and the resource clients.
+- **`reference/client/*`** — [`@reelvault/sdk/client`](/reference/client/configuration): configuration, errors and the resource clients.
 - **[`reference/plugin/host`](/reference/plugin/host)** — the `PluginHost` (`host.*`) every backend plugin receives.
 - **[`reference/plugin/events`](/reference/plugin/events)** — every server event and hook.
 - **[`reference/ui/host`](/reference/ui/host)** — the live host object a plugin's custom elements receive.

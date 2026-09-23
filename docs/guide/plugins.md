@@ -32,7 +32,7 @@ Plugins can also add their own admin pages, which show up in the sidebar under a
 
 ## Installing from a catalog
 
-**Available** shows plugins from the catalog repositories the server knows. A fresh server already points at the official [ReelVault.Plugins](https://github.com/ReelVault/ReelVault.Plugins) catalog.
+**Available** shows plugins from the catalog repositories the server knows. A fresh server already points at the official [plugins](https://github.com/ReelVault/plugins) catalog.
 
 1. Find a plugin and open it.
 2. Review the description, version, and the **capabilities** it asks for.

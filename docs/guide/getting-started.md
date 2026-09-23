@@ -22,7 +22,7 @@ One container: server, web UI and ffmpeg included.
 
 ```bash
 mkdir reelvault && cd reelvault
-curl -fsSL https://raw.githubusercontent.com/ReelVault/ReelVault.Server/main/docker-compose.yml -o docker-compose.yml
+curl -fsSL https://raw.githubusercontent.com/ReelVault/reelvault/main/docker-compose.yml -o docker-compose.yml
 docker compose up -d
 ```
 
@@ -48,7 +48,7 @@ docker run -d --name reelvault \
 
 ## Option B — Windows (installer)
 
-1. Download `install.bat` from the [latest release](https://github.com/ReelVault/ReelVault.Server/releases/latest) (it sits next to the big `ReelVault-…-windows-x64.zip` — you only need the `.bat`).
+1. Download `install.bat` from the [latest release](https://github.com/ReelVault/reelvault/releases/latest) (it sits next to the big `ReelVault-…-windows-x64.zip` — you only need the `.bat`).
 2. Double-click it. It downloads the app, installs ffmpeg if missing, and creates a **ReelVault** shortcut in the Start Menu.
 3. Open ReelVault from the Start Menu, then open `http://localhost:3030`.
 
@@ -63,7 +63,7 @@ Prefer PowerShell?
 ## Option C — Linux (installer)
 
 ```bash
-curl -fsSL -o install.sh https://github.com/ReelVault/ReelVault.Server/releases/latest/download/install.sh
+curl -fsSL -o install.sh https://github.com/ReelVault/reelvault/releases/latest/download/install.sh
 bash install.sh
 ```
 
@@ -83,13 +83,13 @@ Every release ships portable archives — `ReelVault-<version>-linux-x64.tar.gz`
 ## From source (developers)
 
 ```bash
-git clone https://github.com/ReelVault/ReelVault.Server.git
-cd ReelVault.Server
+git clone https://github.com/ReelVault/reelvault.git
+cd reelvault
 bun install
 bun dev   # http://localhost:3030 — API only, no bundled UI
 ```
 
-Without a `.env`, the server uses port `3030`, stores data in `./data`, and writes auto-generated secrets to `data/secrets.env` with `0600` permissions on first boot. The web client is a separate repository — its [README](https://github.com/ReelVault/ReelVault.Website) covers the dev server (port `3000`, proxies `/v1` and `/api` to `:3030`) and the desktop build.
+Without a `.env`, the server uses port `3030`, stores data in `./data`, and writes auto-generated secrets to `data/secrets.env` with `0600` permissions on first boot. The web client is a separate repository — its [README](https://github.com/ReelVault/website) covers the dev server (port `3000`, proxies `/v1` and `/api` to `:3030`) and the desktop build.
 
 ## Connect to it
 
@@ -118,5 +118,5 @@ bun start            # production start
 bun test             # test suite
 bun run check-types  # tsc --noEmit
 bun run db:migrate   # apply database migrations
-bun run build-sdk    # build the reelvault-sdk package
+bun run build-sdk    # build the @reelvault/sdk package
 ```

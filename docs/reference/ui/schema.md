@@ -6,9 +6,9 @@ outline: [2, 3]
 
 # UI schema
 
-A declarative schema is **data** describing a surface, rendered by the host's own components. It cannot execute code: data is fetched and mutations run through your plugin's backend routes. Build schemas with the type-safe helpers from `reelvault-sdk/ui/schema` (or `reelvault-sdk/ui`) and let the build emit JSON.
+A declarative schema is **data** describing a surface, rendered by the host's own components. It cannot execute code: data is fetched and mutations run through your plugin's backend routes. Build schemas with the type-safe helpers from `@reelvault/sdk/ui/schema` (or `@reelvault/sdk/ui`) and let the build emit JSON.
 
-Helper signatures are flatter than the node shapes below — for example `stats(items)`, `tabs(items)`, `when(condition, content, otherwise?)` and `embed(src, options?)` take their node's payload positionally. When in doubt, check the helper's parameters in `reelvault-sdk/ui/schema`; the rendered node always matches the shapes documented here.
+Helper signatures are flatter than the node shapes below — for example `stats(items)`, `tabs(items)`, `when(condition, content, otherwise?)` and `embed(src, options?)` take their node's payload positionally. When in doubt, check the helper's parameters in `@reelvault/sdk/ui/schema`; the rendered node always matches the shapes documented here.
 
 ## Surface
 
@@ -132,7 +132,7 @@ Schemas run against the same ambient context as custom elements: `context.pageUr
 
 ## Builders
 
-Every node has an identity-typed builder. Import from `reelvault-sdk/ui/schema` to keep the bundle free of the element kit:
+Every node has an identity-typed builder. Import from `@reelvault/sdk/ui/schema` to keep the bundle free of the element kit:
 
 ```ts
 defineSchema(surface)
