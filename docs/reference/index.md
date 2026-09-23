@@ -1,12 +1,14 @@
 ---
-title: API reference
+title: Reference
 description: Exact signatures, types, limits and defaults for the ReelVault SDK, plugin host, UI kit and events.
 outline: [2, 3]
 ---
 
-# API reference
+# Reference
 
-This section is the lookup table. The **Develop** guides explain how things fit together; these pages give you the exact shape of each symbol — signature, parameters, return type, required capability, and limits — so you do not have to open the source.
+This section is the lookup table for the **SDK and plugin API**. The **Develop** guides explain how things fit together; these pages give you the exact shape of each symbol — signature, parameters, return type, required capability, and limits — so you do not have to open the source.
+
+> Looking for the **HTTP API**? That is a different thing: the server serves an interactive OpenAPI reference at `/openapi` while `OPENAPI_DOCS_ENABLED=true` (the default). This section documents the TypeScript SDK and the plugin runtime, not the raw HTTP endpoints.
 
 Everything here is derived from the TypeScript sources of the [`ReelVault/sdk`](https://github.com/ReelVault/sdk) repository:
 

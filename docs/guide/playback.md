@@ -6,6 +6,10 @@ outline: [2, 3]
 
 # Playback & transcoding
 
+::: tip In short
+The server picks **direct play**, **remux** or **transcode** per file and device — cheapest option wins. A GPU speeds up transcodes; HDR always transcodes to SDR.
+:::
+
 You never pick "direct play" or "transcode" yourself. When playback starts, the server compares the file with what the client can handle and picks the cheapest option:
 
 | Decision | When it is used | Cost |
@@ -53,7 +57,9 @@ Relevant settings in **Admin → Server settings → Streaming**:
 
 ## HDR
 
+::: info HDR always transcodes
 The server detects HDR10, Dolby Vision and HLG. HDR sources always transcode, because the output is an SDR HLS stream; tone-mapping converts the colours (`tonemapx` / `zscale`, configurable in `ffmpeg.toneMapping`). If everything you own is SDR, you can ignore this entirely.
+:::
 
 ## Sessions and limits
 

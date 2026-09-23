@@ -6,6 +6,10 @@ outline: [2, 3]
 
 # Remote access & TLS
 
+::: tip In short
+On the LAN, set `APP_HOST=0.0.0.0`. For the internet, put the server behind a reverse proxy with TLS — and only after first-run setup is complete (or with a setup token enabled).
+:::
+
 By default a ReelVault server only listens on localhost. You decide how far to open it up: to the LAN, or to the internet. How much you open depends on who needs access.
 
 ## On the LAN
@@ -22,7 +26,9 @@ If you have a hostname for the machine (for example `reelvault.lan`), set `APP_P
 
 ## Exposing it to the internet
 
-**Put it behind a reverse proxy.** Terminate TLS there and forward to the server — do not expose port 3030 directly. And do it **after** first-run setup is complete, or enable a setup token first (`SETUP_TOKEN_ENABLED=true`) — on an unconfigured server anyone who reaches the setup wizard could create the administrator account.
+::: warning Never expose an unconfigured server
+Put it behind a reverse proxy and terminate TLS there — do not expose port 3030 directly. Do this **after** first-run setup is complete, or enable a setup token first (`SETUP_TOKEN_ENABLED=true`). On an unconfigured server, anyone who reaches the setup wizard could create the administrator account.
+:::
 
 A typical nginx site:
 
@@ -54,7 +60,9 @@ Then set:
 | `APP_TRUSTED_PROXY_COUNT` | `1` | Trust exactly one proxy for `X-Forwarded-For` — the client IP is used for rate limiting and the audit log. Increase only if you have a CDN in front. |
 | `APP_ALLOWED_ORIGINS` | your domain, if needed | Usually unnecessary; add it if the browser origin differs from the server URL. |
 
-The WebSocket upgrade matters: without it, playback controls and live updates fall back to polling or stop working.
+::: tip Don't drop the WebSocket upgrade
+Without it, playback controls and live updates fall back to polling or stop working.
+:::
 
 If your proxy rewrites or drops the `Origin` header, set `APP_COOKIE_DOMAIN` as well — otherwise leave it alone, since the server derives the cookie domain automatically.
 

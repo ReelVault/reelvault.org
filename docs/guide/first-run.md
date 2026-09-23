@@ -62,4 +62,4 @@ Everything else starts in the admin panel. The next step is [Libraries & scannin
 
 - [Configuration](/guide/configuration) — environment variables and system settings.
 - [Web & desktop clients](/guide/website) — connect more devices.
-- [Plugins (admin)](/guide/plugins) — add metadata providers and other extras.
+- [Installing plugins](/guide/plugins) — add metadata providers and other extras.

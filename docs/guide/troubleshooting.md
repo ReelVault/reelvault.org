@@ -6,6 +6,10 @@ outline: [2, 3]
 
 # Troubleshooting
 
+::: tip In short
+Most problems come down to ffmpeg, the bind address, or a plugin using a capability it did not declare. Find the matching symptom below.
+:::
+
 ## The server exits immediately
 
 It almost always by ffmpeg. The server checks for `ffmpeg` and `ffprobe` at startup and refuses to run without them.
@@ -41,6 +45,13 @@ Open **Live activity** and look at the session's decision:
 - **Bandwidth** — `stream.maxPerStreamBandwidthKbps` caps the stream; raise it or set it to `0`.
 - **Hardware acceleration** — check **Admin → System resources → ffmpeg capabilities**. If your GPU was not detected, this runs on CPU. Re-run detection after driver changes, or set `ffmpeg.hwaccel` explicitly.
 - **HDR** — HDR sources always transcode for SDR output. That is expected.
+
+<Screenshot
+  caption="Admin → System resources"
+  hint="CPU, memory and disk pressure, plus which hardware encoders were detected and verified."
+  src="/screenshots/admin-system-resources.png"
+  alt="System resources page showing CPU, memory and disk usage with ffmpeg hardware encoder capabilities"
+/>
 
 ## The picture stutters or the CPU is pinned
 

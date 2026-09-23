@@ -6,6 +6,10 @@ outline: [2, 3]
 
 # What is ReelVault?
 
+::: tip In short
+ReelVault turns folders of movies and shows on your own hardware into a browsable, streamable library — with a web/desktop client, a plugin system and a typed TypeScript SDK.
+:::
+
 ReelVault is a media server you run yourself. Point it at the folders where your movies and shows live, and it turns them into a library you can browse and stream — with artwork, descriptions, subtitles and resume-where-you-left-off — to a browser or the desktop app.
 
 It is the same idea as Jellyfin or Plex, built from scratch on [Bun](https://bun.sh) and [Elysia](https://elysiajs.com). It is meant for a household or a small circle of friends on their own hardware, not as a hosted service.
@@ -70,5 +74,5 @@ The **website** is a generic React app. It ships as a browser page and as a [Tau
 
 - [Install & run](/guide/getting-started) — get a server up.
 - [Web & desktop clients](/guide/website) — how to connect a client.
-- [Plugins (admin)](/guide/plugins) — install your first plugin.
+- [Installing plugins](/guide/plugins) — install your first plugin.
 - [SDK overview](/sdk/) — for developers.

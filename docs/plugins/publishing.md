@@ -64,8 +64,10 @@ The [plugins](https://github.com/ReelVault/plugins) repo ships the official buil
 ```bash
 bun run build-catalog
 # → dist/reelvault-catalog.json
-# → dist/<plugin>-<version>.zip  (one per plugin version; older ones feed the versions history)
+# → dist/plugins/<id>/<id>-<version>.zip  (archives feed the versions history)
 ```
+
+The build skips plugins whose sources have not changed since their archive was packaged, so catalog rebuilds are cheap. **Commit the `dist/` folder** — it *is* the published catalog: the official URL serves it straight from the repository.
 
 For every plugin under `plugins/` it:
 

@@ -17,7 +17,9 @@ When something is slow, stuck or just surprising, these are the places to look.
   hint="Live sessions, storage and worker activity."
   src="/screenshots/admin-dashboard.png"
   alt="The admin command center with active video sessions, catalog size, worker queue state and uptime"
-/> **Admin → Analytics & statistics** goes deeper — playback over time, popular titles, transcode ratios, per-user activity.
+/>
+
+**Admin → Analytics & statistics** goes deeper — playback over time, popular titles, transcode ratios, per-user activity.
 
 ## Live activity
 

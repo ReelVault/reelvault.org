@@ -63,6 +63,6 @@ docs/
 ├── guide/                      # self-hosting: install, config, library, admin (users)
 ├── sdk/                        # @reelvault/sdk docs (client, common, ui, testing)
 ├── plugins/                    # plugin authoring (manifest, host API, UI, publishing)
-└── reference/                  # API reference: signatures, contracts, glossary
+└── reference/                  # Reference: signatures, contracts, glossary
 scripts/generate-llms.ts        # post-build: copies .md into dist/, emits llms.txt
 ```

@@ -31,8 +31,8 @@ export default defineConfig({
 				activeMatch: "/(sdk|plugins|reference)/",
 				items: [
 					{ text: "SDK", link: "/sdk/" },
-					{ text: "Plugin authoring", link: "/plugins/getting-started" },
-					{ text: "API reference", link: "/reference/" },
+					{ text: "Plugins", link: "/plugins/getting-started" },
+					{ text: "Reference", link: "/reference/" },
 				],
 			},
 			{ text: "GitHub", link: github },
@@ -68,10 +68,15 @@ export default defineConfig({
 				{
 					text: "Operations",
 					items: [
-						{ text: "Plugins (admin)", link: "/guide/plugins" },
+						{ text: "Installing plugins", link: "/guide/plugins" },
 						{ text: "Tasks & workers", link: "/guide/tasks-and-workers" },
 						{ text: "Diagnostics & logs", link: "/guide/diagnostics" },
 						{ text: "Backups & upgrades", link: "/guide/maintenance" },
+					],
+				},
+				{
+					text: "Help",
+					items: [
 						{ text: "Troubleshooting", link: "/guide/troubleshooting" },
 						{ text: "FAQ", link: "/guide/faq" },
 					],

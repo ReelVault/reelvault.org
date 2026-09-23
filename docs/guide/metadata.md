@@ -71,5 +71,5 @@ The **Discover** page is built from providers that implement curated feeds — t
 ## Next steps
 
 - [Playback & transcoding](/guide/playback)
-- [Plugins (admin)](/guide/plugins)
+- [Installing plugins](/guide/plugins)
 - [Metadata & subtitle providers](/plugins/providers) — for plugin authors.

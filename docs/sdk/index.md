@@ -93,5 +93,5 @@ import type { MovieDetail } from "@reelvault/sdk/common";
 - [API client](/sdk/client/getting-started) — `new ReelVaultClient({...})` and the transport features.
 - [Shared contracts](/sdk/common) — how schemas and types relate.
 - [Plugin UI kit](/sdk/ui) and [testing host](/sdk/testing).
-- [API reference](/reference/) — exact signatures for the client, host and UI.
+- [Reference](/reference/) — exact signatures for the client, host and UI.
 - Writing a plugin? Start at [Plugins: getting started](/plugins/getting-started).

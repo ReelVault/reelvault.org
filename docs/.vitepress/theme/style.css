@@ -169,3 +169,69 @@
 		width: min(280px, calc(100vw - 32px));
 	}
 }
+
+/* ── Home hero image ──────────────────────────────────────────────────────── */
+/* The hero screenshot is 16:9 (1920×1080), but VitePress caps the image to a
+   320×320 box, so it renders at roughly 320×180 — tiny. Let it fill a wider
+   16:9 box instead. `!important` is needed because the defaults live in
+   scoped component styles. */
+
+.VPHero.has-image .image {
+	margin: 0 !important;
+}
+
+@media (max-width: 959px) {
+	.VPHero.has-image .image {
+		margin-top: 40px !important;
+	}
+}
+
+.VPHero.has-image .image-container {
+	width: 100% !important;
+	max-width: 560px;
+	height: auto !important;
+	transform: none !important;
+}
+
+.VPHero.has-image .image-src {
+	position: static !important;
+	max-width: 100% !important;
+	max-height: none !important;
+	transform: none !important;
+	border: 1px solid var(--vp-c-divider);
+	border-radius: 12px;
+	box-shadow: var(--vp-shadow-3);
+}
+
+.VPHero.has-image .image-bg {
+	display: none !important;
+}
+
+@media (min-width: 960px) {
+	.VPHero.has-image .image-container {
+		max-width: 600px;
+	}
+}
+
+/* ── Readability: a little more room for prose, code and screenshots ──────── */
+
+@media (min-width: 960px) {
+	.VPDoc.has-aside .content-container {
+		max-width: 768px !important;
+	}
+}
+
+/* ── Contrast ─────────────────────────────────────────────────────────────── */
+/* The brand green is intentionally vivid (it mirrors the app) but the neon
+   used for body links is harsh on the dark surface. Keep buttons vivid and
+   calm the link tone a notch; also lift the faintest text tier so it clears
+   WCAG AA. */
+
+:root {
+	--vp-c-text-3: rgba(60, 60, 67, 0.5);
+}
+
+.dark {
+	--vp-c-brand-1: oklch(0.8 0.19 148.35);
+	--vp-c-text-3: rgba(235, 235, 245, 0.5);
+}

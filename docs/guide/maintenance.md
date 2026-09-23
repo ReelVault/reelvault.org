@@ -6,6 +6,10 @@ outline: [2, 3]
 
 # Backups & upgrades
 
+::: tip In short
+Back up `ROOT_DIR` — or at least `reelvault.sqlite`, `secrets.env` and `plugins/`. Upgrades replace the app only; your accounts, libraries and watched state survive.
+:::
+
 ## What lives where
 
 Everything the server owns sits in `ROOT_DIR` (default `./data`, `/data` in Docker):
@@ -31,7 +35,16 @@ For most people, backing up is: stop the server and copy `ROOT_DIR`, or at least
 
 You can also take a **database backup** from **Admin → Database**, which snapshots the SQLite database without stopping the server. Keep the file somewhere outside `ROOT_DIR`.
 
+<Screenshot
+  caption="Admin → Database & backups"
+  hint="Take an online snapshot of the SQLite database without stopping the server."
+  src="/screenshots/admin-database.png"
+  alt="Database and backups page with backup count, space used, database engine and an empty snapshot list"
+/>
+
+::: warning Keep secrets.env
 `transcodes/`, `images/` and `logs/` are regenerable or disposable — skip them to keep backups small. `secrets.env` is not: without `BETTER_AUTH_SECRET`, existing sessions become invalid, and without the matching `SETUP_TOKEN`, a fresh server is unconfigured.
+:::
 
 ## Upgrades
 

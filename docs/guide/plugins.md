@@ -1,14 +1,16 @@
 ---
-title: Plugins (admin)
+title: Installing plugins
 description: Install, configure, update and remove plugins from the admin panel.
 outline: [2, 3]
 ---
 
-# Plugins (admin)
+# Installing plugins
 
 Plugins add the source-specific parts of ReelVault: metadata providers, subtitle providers, media requests, webhooks, extra pages and buttons. You manage all of them in **Admin → Plugins**.
 
-> **Plugins are code, and they run inside the server process.** They get the same access the server has. Only install plugins from sources you trust, and read the capabilities shown in the install confirmation.
+::: warning Plugins are code
+They run inside the server process and get the same access the server has. Only install plugins from sources you trust, and read the capabilities shown in the install confirmation.
+:::
 
 ## What is installed
 

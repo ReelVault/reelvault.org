@@ -6,6 +6,10 @@ outline: [2, 3]
 
 # Install & run
 
+::: tip In short
+ReelVault is one program on one port. Pick Docker or an installer, open `http://localhost:3030`, and the setup wizard creates your administrator — no config files.
+:::
+
 ReelVault is one program: the API, the web UI and the streaming engine all run from a single process on a single port. Pick one of the paths below — all of them end the same way, at `http://localhost:3030`, where the setup wizard creates your administrator account (no tokens, no config files).
 
 ## What you need

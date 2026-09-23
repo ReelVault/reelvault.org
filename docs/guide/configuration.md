@@ -6,6 +6,10 @@ outline: [2, 3]
 
 # Configuration
 
+::: tip In short
+**Environment variables** cover startup — network, paths and secrets. Everything you tune day to day lives in **Admin → Server settings** and mostly applies without a restart.
+:::
+
 There are two layers:
 
 - **Environment variables** — read once at startup. They cover networking, paths and secrets. See `.env.example` in the server repository for the full, commented list.
@@ -45,7 +49,16 @@ Open **Admin → Server settings**. Groups you will actually touch:
 - **Workers & resources** — background worker concurrency and resource thresholds.
 - **Plugins** — the outbound HTTP allow-list and per-plugin limits.
 
+<Screenshot
+  caption="Admin → Server settings"
+  hint="Tabs for resources, streaming, scanning, downloads and more — most changes apply live."
+  src="/screenshots/admin-settings.png"
+  alt="The server settings page with tabs for resources, streaming, scanning, downloads, markers, trickplay, images, workers, player, system and network"
+/>
+
+::: tip ffmpeg must be on the PATH
 `ffmpeg.path` and `ffprobe.path` are also settings: if the binaries are not on the server's `PATH`, point these at the full paths there. The server verifies that they exist at startup and refuses to run without them.
+:::
 
 ## Secrets
 
