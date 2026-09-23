@@ -1,0 +1,4 @@
+# Allow crawlers — including AI/LLM crawlers — everything.
+
+User-agent: *
+Allow: /
