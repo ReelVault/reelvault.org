@@ -46,11 +46,9 @@ bun run build      # build → docs/.vitepress/dist (+ .md copies, llms.txt, llm
 bun run preview    # serve the production build locally
 ```
 
-## Deploy (GitHub Pages, custom domain)
+## Deploy
 
-A push to `main` runs [.github/workflows/deploy.yml](.github/workflows/deploy.yml), which builds the site and deploys it via GitHub Actions to **https://reelvault.org**.
-
-One-time setup: **Settings → Pages → Source: GitHub Actions**, and **Settings → Pages → Custom domain: reelvault.org** (or rely on `docs/public/CNAME`). DNS needs a CNAME record for `www`/apex pointing at `<owner>.github.io` per GitHub's instructions. The site builds with the default base `/` — no `DOCS_BASE` needed for a custom domain (only a project-site deploy under `/<repo>/` would set it; `SITE_URL` in `llms.txt` links likewise defaults to `https://reelvault.org`).
+Deploys automatically to **https://reelvault.org** on every push to `main`, via [GitHub Actions](.github/workflows/deploy.yml).
 
 ## Layout
 
